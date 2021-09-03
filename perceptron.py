@@ -52,7 +52,7 @@ def generate_data(line):
     
     return
 
-def make_gragh(nowW):
+def make_gragh(nowW,isFinal = False):
 
     #直線を描く処理
     x_line = np.array([i/10 for i in range(-101,101)])
@@ -66,8 +66,8 @@ def make_gragh(nowW):
     plt.plot(x_line,y_line)
 
     #散布図
-    plt.scatter(X0,Y0,s=10,label="positive")
-    plt.scatter(X1,Y1,s=10,label="negative")
+    plt.scatter(X0,Y0,s=10,label="positive",c = "orange")
+    plt.scatter(X1,Y1,s=10,label="negative", c = "blue")
     plt.ylim(-10,10)
     plt.xlim(-10,10)
     plt.legend()
@@ -76,6 +76,9 @@ def make_gragh(nowW):
     plt.plot(-10,-10)
     #plt.show()
     plt.savefig("classification"+str(cnt))
+    if isFinal:
+        plt.savefig("final_result")
+
     plt.cla()
     
 def update(incorrect_point,prevW,category):
@@ -117,7 +120,7 @@ while True:
 print(ans_line)
 print(W)
 print(cnt)
-make_gragh(W)
+make_gragh(W,isFinal = True)
 
 import make_gif
 
