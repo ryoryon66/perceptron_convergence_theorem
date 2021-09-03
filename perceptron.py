@@ -66,8 +66,8 @@ def make_gragh(nowW,isFinal = False):
     plt.plot(x_line,y_line)
 
     #散布図
-    plt.scatter(X0,Y0,s=10,label="positive",c = "orange")
-    plt.scatter(X1,Y1,s=10,label="negative", c = "blue")
+    plt.scatter(X0,Y0,s=10,label="positive",c = "orange", marker = "o")
+    plt.scatter(X1,Y1,s=10,label="negative", c = "blue", marker = "x")
     plt.ylim(-10,10)
     plt.xlim(-10,10)
     plt.legend()
